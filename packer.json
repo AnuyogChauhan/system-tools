@@ -48,12 +48,11 @@
  },	  
     {
       "type": "shell",
-      "execute_command": "echo '{{user `ubuntu`}}' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
       "inline": [
 	"sleep 30",
-        "pkill apt && apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y python2.7",
-	"apt-get install -y python-pip",
-        "mkdir -p /opt/dtedge/system-tools"
+        "sudo apt-get update",
+	"sudo apt-get install -y python2.7 python-pip",
+        "sudo mkdir -p /opt/dtedge/system-tools"
       ]
     },
     {
@@ -75,7 +74,7 @@
 	      "echo '#!/bin/bash' > /etc/rc.local",
 	      "echo 'nohup python /opt/dtedge/system-tools/system-tools.py > /var/log/system-tools.log 2>&1 &' >> /etc/rc.local",
 	      "echo 'exit 0' >> /etc/rc.local",
-        "/usr/bin/pip install -r /opt/dtedge/system-tools/requirements.txt"
+        "pip install -r /opt/dtedge/system-tools/requirements.txt"
       ]
     }
   ]
