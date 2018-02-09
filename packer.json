@@ -38,6 +38,14 @@
       "source": "./environment",
       "type": "file"
     },
+ {
+   "type": "shell",
+   "inline": [
+     "sleep 10",
+     "echo '{{user `image_name`}}'",
+     "sudo su -c \"echo '127.0.0.1 {{user `image_name`}}' >> /etc/hosts\"",
+      ]
+ },	  
     {
       "type": "shell",
       "execute_command": "echo '{{user `ubuntu`}}' | {{ .Vars }} sudo -E -S sh '{{ .Path }}'",
