@@ -43,7 +43,7 @@
    "inline": [
      "sleep 10",
      "echo '{{user `image_name`}}'",
-     "sudo su -c \"echo '127.0.0.1 {{user `image_name`}}' >> /etc/hosts\"",
+     "sudo su -c \"echo '127.0.0.1 {{user `image_name`}}' >> /etc/hosts\""
       ]
  },	  
     {
